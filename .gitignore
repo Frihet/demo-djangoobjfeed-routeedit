@@ -4,3 +4,5 @@
 apps/djangoobjfeed
 apps/fcdjangoutils
 apps/routeedit
+deps
+stdout.log

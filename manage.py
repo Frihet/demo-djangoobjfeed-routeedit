@@ -3,6 +3,10 @@ import sys
 
 from os.path import abspath, dirname, join
 
+virtualenv = join(dirname(__file__), 'deps/bin/activate_this.py')
+if exists(virtualenv):
+    execfile(virtualenv, dict(__file__=virtualenv))
+
 try:
     import pinax
 except ImportError:
@@ -22,6 +26,8 @@ except ImportError:
 setup_environ(settings_mod)
 
 sys.path.insert(0, join(settings.PROJECT_ROOT, "apps"))
+
+import fcdjangoutils.monkeypatches
 
 if __name__ == "__main__":
     execute_from_command_line()
