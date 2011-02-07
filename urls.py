@@ -37,6 +37,9 @@ blogs_feed_dict = {"feed_dict": {
 
 bookmarks_feed_dict = {"feed_dict": {"": BookmarkFeed }}
 
+js_info_dict = {
+    'packages': ("apps/djangoobjfeed/locale", "apps/routeedit/locale"),
+}
 
 urlpatterns = patterns("",
     url(r"^$", direct_to_template, {
@@ -68,6 +71,10 @@ urlpatterns = patterns("",
     url(r"^feeds/tweets/(.*)/$", "django.contrib.syndication.views.feed", tweets_feed_dict),
     url(r"^feeds/posts/(.*)/$", "django.contrib.syndication.views.feed", blogs_feed_dict),
     url(r"^feeds/bookmarks/(.*)/?$", "django.contrib.syndication.views.feed", bookmarks_feed_dict),
+    (r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict), 
+
+    url(r"^djangoobjfeed/", include("djangoobjfeed.urls")),
+    url(r"^routeedit/", include("routeedit.urls")),
 )
 
 ## @@@ for now, we'll use friends_app to glue this stuff together

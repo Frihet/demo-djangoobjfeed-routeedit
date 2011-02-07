@@ -20,6 +20,33 @@
     <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/wiki.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}pinax/css/jquery.autocomplete.css" />
     <link rel="stylesheet" href="{{ STATIC_URL }}bookmarks/css/bookmarks.css" />
+
+    <link href="{{ STATIC_URL }}css/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css"  />    
+    <link href="{{ STATIC_URL }}css/jquery-ui-1.8.6.custom.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}css/jquery.ui.selectmenu.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL }}css/jquery.fastconfirm.css" rel="stylesheet" type="text/css" />
+
+    %WidgetTagMiddleware.head.css%
+
+    <script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+
+    <script src="{{ STATIC_URL }}js/jquery.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery-ui.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.fastconfirm.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.fastconfirm.setup.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.ui.datepicker-no.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.ui.selectmenu.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.ui.tooltip.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.qtip-1.0.0-rc3.min.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.example.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/jquery.expander.js" type="text/javascript"></script>
+
+    <script src="{{ STATIC_URL }}fcdjangoutils/js/jquery-validate/jquery.validate.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}fcdjangoutils/js/fcdjangoutils.js" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}fcdjangoutils/js/expand.js" type="text/javascript"></script>
+
+    %WidgetTagMiddleware.head.javascript%
+
     {% block extra_head %}{% endblock %}
 {% endblock %}
 
@@ -70,4 +97,7 @@
     {% ga %}
     <script type="text/javascript" src="{{ STATIC_URL }}pinax/js/topics.js"></script>
     {% block extra_body %}{% endblock %}
+    %WidgetTagMiddleware.body.dialog%
 {% endblock %}
+
+{% block jquery_src %}javascript: void(0);{% endblock %}

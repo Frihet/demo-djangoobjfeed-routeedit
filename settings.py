@@ -75,6 +75,9 @@ STATIC_URL = "/site_media/static/"
 # Additional directories which hold static files
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, "media"),
+    os.path.join(PROJECT_ROOT, "apps", "fcdjangoutils", "media"),
+    os.path.join(PROJECT_ROOT, "apps", "djangoobjfeed", "media"),
+    os.path.join(PROJECT_ROOT, "apps", "routeedit", "media"),
     os.path.join(PINAX_ROOT, "media", PINAX_THEME),
 ]
 
@@ -93,6 +96,7 @@ TEMPLATE_LOADERS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+    "fcdjangoutils.widgettagmiddleware.WidgetTagMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -135,6 +139,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     "friends_app.context_processors.invitations",
     
     "TestObjfeed.context_processors.combined_inbox_count",
+
+    "fcdjangoutils.urlresolver.urlparams",
 ]
 
 COMBINED_INBOX_COUNT_SOURCES = [
@@ -199,6 +205,10 @@ INSTALLED_APPS = [
     "pinax.apps.threadedcomments_extras",
     "pinax.apps.voting_extras",
     
+    "fcdjangoutils",
+    "djangoobjfeed",
+    "routeedit",
+
     # project
     "about",
 ]
